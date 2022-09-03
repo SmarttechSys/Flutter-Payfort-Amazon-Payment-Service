@@ -12,7 +12,7 @@ class FortRequest {
     required this.merchantExtra1,
     this.command,
     this.paymentOption,
-  }) : command = 'PURCHASE';
+  });
 
   /// An SDK Token to enable using the Amazon Payment Services Mobile SDK.
   ///
@@ -29,7 +29,7 @@ class FortRequest {
 
   /// Request Command.
   ///
-  final String command;
+  final String? command;
 
   /// The transaction’s amount.
   /// Each currency has predefined allowed decimal points that should be taken into consideration when sending the amount.
