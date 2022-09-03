@@ -84,7 +84,7 @@ class FortRequest {
       merchantReference: merchantReference ?? this.merchantReference,
       language: language ?? this.language,
       amount: amount ?? this.amount,
-      command: command ?? "PURCHASE"
+      command: command ?? "PURCHASE",
       customerEmail: customerEmail ?? this.customerEmail,
       currency: currency ?? this.currency,
       merchantExtra: merchantExtra ?? this.merchantExtra,
