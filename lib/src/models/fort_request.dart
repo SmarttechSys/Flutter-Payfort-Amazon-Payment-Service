@@ -8,8 +8,8 @@ class FortRequest {
     required this.amount,
     required this.customerEmail,
     this.currency = 'SAR',
-    this.merchantExtra,
-    this.merchantExtra1,
+    required this.merchantExtra,
+    required this.merchantExtra1,
     this.paymentOption,
   }) : command = 'PURCHASE';
 
@@ -44,9 +44,9 @@ class FortRequest {
   ///
   final String currency;
 
-  final String merchantExtra;
+  final String? merchantExtra;
 
-  final String merchantExtra1;
+  final String? merchantExtra1;
 
   final String? paymentOption;
 
