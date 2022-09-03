@@ -7,24 +7,20 @@ class PayfortResult {
     this.responseCode,
     this.responseStatus,
     this.responseMessage,
-    this.command,
-    this.merchantReference,
-    this.orderDescription,
-    this.amount,
-    this.currency,
-    this.fortId,
-    this.customerEmail,
     this.sdkToken,
-    this.tokenName,
+    this.merchantReference,
+    this.command,
+    this.amount,
+    this.customerEmail,
+    this.currency,
+    this.merchantExtra,
+    this.merchantExtra1,
     this.paymentOption,
-    this.eci,
     this.authorizationCode,
-    this.customerIp,
     this.customerName,
     this.expiryDate,
     this.cardNumber,
     this.status,
-    this.phoneNumber,
   });
 
   /// Response Code carries the value of our system’s response. *The code consists of five digits,
@@ -40,58 +36,42 @@ class PayfortResult {
   ///
   String? responseMessage;
 
-  /// Command
+  /// An SDK Token to enable using the Amazon Payment Services Mobile SDK.
   ///
-  String? command;
+  String? sdkToken;
 
   /// The Merchant’s unique order number.
   ///
   String? merchantReference;
+
+  /// Command
+  ///
+  String? command;
 
   /// The transaction’s amount.
   /// Each currency has predefined allowed decimal points that should be taken into consideration when sending the amount.
   ///
   String? amount;
 
-  /// The currency of the transaction’s amount in ISO code 3.
-  ///
-  String? currency;
-
-  /// The order’s unique reference returned by Amazon Payfort system.
-  ///
-  String? fortId;
-
   /// The customer’s email.
   ///
   String? customerEmail;
 
-  /// An SDK Token to enable using the Amazon Payment Services Mobile SDK.
+  /// The currency of the transaction’s amount in ISO code 3.
   ///
-  String? sdkToken;
+  String? currency;
 
-  /// The Token received from the Tokenization process.
-  ///
-  String? tokenName;
+  String? merchantExtra;
+
+  String? merchantExtra1;
 
   /// Payment option. [MASTERCARD], [VISA], [AMEX] etc...
   ///
   String? paymentOption;
 
-  /// The E-commerce indicator.
-  ///
-  String? eci;
-
   /// The authorization code returned from the 3rd party.
   ///
   String? authorizationCode;
-
-  /// It holds the description of the order.
-  ///
-  String? orderDescription;
-
-  /// It holds the customer’s IP address.
-  ///
-  String? customerIp;
 
   /// The customer’s name.
   ///
@@ -109,33 +89,25 @@ class PayfortResult {
   ///
   String? status;
 
-  /// The customer’s phone number.
-  ///
-  String? phoneNumber;
-
   factory PayfortResult.fromMap(Map<String, dynamic> data) {
     return PayfortResult(
       responseCode: data['response_code'],
       responseStatus: ResponseStatus.values[data['response_status']],
       responseMessage: data['response_message'],
+      sdkToken: data['sdkToken'],
+      merchantReference: data['merchantRef'],
       command: data['command'],
-      merchantReference: data['merchant_reference'],
       amount: data['amount'],
+      customerEmail: data['email'],
       currency: data['currency'],
-      fortId: data['fort_id'],
-      customerEmail: data['customer_email'],
-      sdkToken: data['sdk_token'],
-      tokenName: data['token_name'],
+      merchantExtra: data['merchant_extra'],
+      merchantExtra1: data['merchant_extra1'],
       paymentOption: data['payment_option'],
-      eci: data['eci'],
       authorizationCode: data['authorization_code'],
-      customerIp: data['customer_ip'],
       customerName: data['customer_name'],
-      orderDescription: data['order_description'],
       expiryDate: data['expiry_date'],
       cardNumber: data['card_number'],
       status: data['status'],
-      phoneNumber: data['phone_number'],
     );
   }
 
@@ -144,24 +116,20 @@ class PayfortResult {
       'response_code': responseCode,
       'response_status': responseStatus?.index,
       'response_message': responseMessage,
+      'sdkToken': sdkToken,
+      'merchantRef': merchantReference,
       'command': command,
-      'merchant_reference': merchantReference,
       'amount': amount,
+      'email': customerEmail,
       'currency': currency,
-      'fort_id': fortId,
-      'customer_email': customerEmail,
-      'sdk_token': sdkToken,
-      'token_name': tokenName,
+      "merchant_extra": merchantExtra,
+      "merchant_extra1": merchantExtra1,
       'payment_option': paymentOption,
-      'eci': eci,
       'authorization_code': authorizationCode,
-      'customer_ip': customerIp,
       'customer_name': customerName,
-      'order_description': orderDescription,
       'expiry_date': expiryDate,
       'card_number': cardNumber,
       'status': status,
-      'phone_number': phoneNumber,
     };
   }
 
