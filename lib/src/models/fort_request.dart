@@ -10,6 +10,7 @@ class FortRequest {
     this.currency = 'SAR',
     required this.merchantExtra,
     required this.merchantExtra1,
+    this.command,
     this.paymentOption,
   }) : command = 'PURCHASE';
 
@@ -59,6 +60,7 @@ class FortRequest {
       'amount': amount.toString(),
       'email': customerEmail,
       'currency': currency,
+      'command': command,
       "merchant_extra": merchantExtra,
       "merchant_extra1": merchantExtra1,
       "payment_option": paymentOption
@@ -70,6 +72,7 @@ class FortRequest {
     String? merchantReference,
     String? language,
     num? amount,
+    String? command,
     String? customerEmail,
     String? currency,
     String? merchantExtra,
@@ -81,6 +84,7 @@ class FortRequest {
       merchantReference: merchantReference ?? this.merchantReference,
       language: language ?? this.language,
       amount: amount ?? this.amount,
+      command: command ?? "PURCHASE"
       customerEmail: customerEmail ?? this.customerEmail,
       currency: currency ?? this.currency,
       merchantExtra: merchantExtra ?? this.merchantExtra,
