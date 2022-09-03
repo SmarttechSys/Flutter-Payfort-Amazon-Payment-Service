@@ -97,20 +97,16 @@ class AmazonPayfortPlugin : FlutterPlugin,
 
     private fun createRequestMap(call: MethodCall): MutableMap<String, Any?> {
         val requestMap: MutableMap<String, Any?> = HashMap()
+        requestMap["sdkToken"] = call.argument<String>("sdkToken")
+        requestMap["merchantRef"] = call.argument<String>("merchantRef")
+        requestMap["lang"] = call.argument<String>("lang")
         requestMap["command"] = call.argument<String>("command")
-        requestMap["customer_name"] = call.argument<String>("customer_name")
-        requestMap["customer_email"] = call.argument<String>("customer_email")
-        requestMap["currency"] = call.argument<String>("currency")
         requestMap["amount"] = call.argument<String>("amount")
-        requestMap["language"] = call.argument<String>("language")
-        requestMap["merchant_reference"] = call.argument<String>("merchant_reference")
-        requestMap["order_description"] = call.argument<String>("order_description")
-        requestMap["sdk_token"] = call.argument<String>("sdk_token")
-        requestMap["token_name"] = call.argument<String>("token_name")
+        requestMap["email"] = call.argument<String>("email")
+        requestMap["currency"] = call.argument<String>("currency")
+        requestMap["merchant_extra"] = call.argument<String>("merchant_extra")
+        requestMap["merchant_extra1"] = call.argument<String>("merchant_extra1")
         requestMap["payment_option"] = call.argument<String>("payment_option")
-        requestMap["eci"] = call.argument<String>("eci")
-        requestMap["customer_ip"] = call.argument<String>("customer_ip")
-        requestMap["phone_number"] = call.argument<String>("phone_number")
         return requestMap
     }
 
